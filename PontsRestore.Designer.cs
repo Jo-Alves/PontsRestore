@@ -50,7 +50,7 @@ namespace PontsRestore
             this.label1.Location = new System.Drawing.Point(21, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 18);
-            this.label1.TabIndex = 0;
+            this.label1.TabIndex = 90;
             this.label1.Text = "Diretório";
             // 
             // txtDirectory
@@ -84,6 +84,7 @@ namespace PontsRestore
             this.dgvFiles.Size = new System.Drawing.Size(577, 260);
             this.dgvFiles.TabIndex = 3;
             this.dgvFiles.TabStop = false;
+            this.dgvFiles.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFiles_CellClick);
             // 
             // colFile
             // 
@@ -118,9 +119,10 @@ namespace PontsRestore
             this.btnRestore.Location = new System.Drawing.Point(440, 376);
             this.btnRestore.Name = "btnRestore";
             this.btnRestore.Size = new System.Drawing.Size(161, 37);
-            this.btnRestore.TabIndex = 4;
+            this.btnRestore.TabIndex = 0;
             this.btnRestore.Text = "Restaurar";
             this.btnRestore.UseVisualStyleBackColor = true;
+            this.btnRestore.Click += new System.EventHandler(this.btnRestore_Click);
             // 
             // lblOpenDirectory
             // 
@@ -149,11 +151,14 @@ namespace PontsRestore
             this.Font = new System.Drawing.Font("Arial", 12F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PontsRestore";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pontos de Restauração";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.PontsRestore_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PontsRestore_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFiles)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
