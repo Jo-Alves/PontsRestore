@@ -34,13 +34,13 @@ namespace PontsRestore
             this.label1 = new System.Windows.Forms.Label();
             this.txtDirectory = new System.Windows.Forms.TextBox();
             this.dgvFiles = new System.Windows.Forms.DataGridView();
+            this.colFile = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFullPath = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnRestore = new System.Windows.Forms.Button();
             this.lblOpenDirectory = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.colFile = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFullPath = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFiles)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,10 +57,11 @@ namespace PontsRestore
             // 
             this.txtDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDirectory.Location = new System.Drawing.Point(49, 55);
+            this.txtDirectory.Location = new System.Drawing.Point(24, 55);
             this.txtDirectory.Name = "txtDirectory";
-            this.txtDirectory.Size = new System.Drawing.Size(521, 26);
+            this.txtDirectory.Size = new System.Drawing.Size(546, 26);
             this.txtDirectory.TabIndex = 1;
+            this.txtDirectory.Leave += new System.EventHandler(this.txtDirectory_Leave);
             // 
             // dgvFiles
             // 
@@ -83,6 +84,29 @@ namespace PontsRestore
             this.dgvFiles.Size = new System.Drawing.Size(577, 260);
             this.dgvFiles.TabIndex = 3;
             this.dgvFiles.TabStop = false;
+            // 
+            // colFile
+            // 
+            this.colFile.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colFile.HeaderText = "Arquivo";
+            this.colFile.Name = "colFile";
+            this.colFile.ReadOnly = true;
+            this.colFile.Width = 86;
+            // 
+            // colDate
+            // 
+            this.colDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colDate.HeaderText = "Data de criação";
+            this.colDate.Name = "colDate";
+            this.colDate.ReadOnly = true;
+            this.colDate.Width = 145;
+            // 
+            // colFullPath
+            // 
+            this.colFullPath.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colFullPath.HeaderText = "Caminho completo";
+            this.colFullPath.Name = "colFullPath";
+            this.colFullPath.ReadOnly = true;
             // 
             // btnRestore
             // 
@@ -109,30 +133,7 @@ namespace PontsRestore
             this.lblOpenDirectory.Size = new System.Drawing.Size(34, 26);
             this.lblOpenDirectory.TabIndex = 2;
             this.toolTip1.SetToolTip(this.lblOpenDirectory, "Abrir Diretório");
-            this.lblOpenDirectory.Click += new System.EventHandler(this.lblOpenDirectory_Click_1);
-            // 
-            // colFile
-            // 
-            this.colFile.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colFile.HeaderText = "Arquivo";
-            this.colFile.Name = "colFile";
-            this.colFile.ReadOnly = true;
-            this.colFile.Width = 86;
-            // 
-            // colDate
-            // 
-            this.colDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colDate.HeaderText = "Data de criação";
-            this.colDate.Name = "colDate";
-            this.colDate.ReadOnly = true;
-            this.colDate.Width = 145;
-            // 
-            // colFullPath
-            // 
-            this.colFullPath.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colFullPath.HeaderText = "Caminho completo";
-            this.colFullPath.Name = "colFullPath";
-            this.colFullPath.ReadOnly = true;
+            this.lblOpenDirectory.Click += new System.EventHandler(this.lblOpenDirectory_Click);
             // 
             // PontsRestore
             // 
